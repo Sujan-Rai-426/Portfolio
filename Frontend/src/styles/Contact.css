@@ -11,7 +11,7 @@
 .contact-section{
     margin-top: 40px;
     width: 80%;
-    padding: 0 50px;
+    padding: 30px 50px;
     border-radius: 10px;
     display: flex;
     /* background: rgb(105, 66, 139); */
@@ -123,7 +123,7 @@
         margin: 0;
         width: 90%;
         flex-direction:column;
-        padding: 0 20px;
+        padding: 20px 20px;
     }
     /* Dev info side */
     .contact-section .contact-left{

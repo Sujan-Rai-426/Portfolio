@@ -17,7 +17,7 @@ function Navbar(props) {
                 <div className="nav-left">
 
 
-                    <h3><a to="http://127.0.0.1/admin">SUJAN</a></h3>
+                    <h3><a to="https://sujan-portfolio.onrender.com/admin/" className='mx-3'>SUJAN</a></h3>
                 </div>
 
 

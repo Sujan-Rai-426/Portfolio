@@ -83,8 +83,6 @@ function Contact_Form() {
             </div>
 
             <div className="contact-right">
-                    <h1 >Send your message here</h1>
-                    <p> If you have any queries or work for me you can direct contact me or drop your message here </p>
 
 {/*     ACTUAL FORM SECTION  */}
         <section className="form-container">
