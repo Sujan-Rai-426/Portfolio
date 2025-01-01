@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import cloudinary
 from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,18 +33,18 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(",")
 
 # Manually added for email message form contact
 # Looking to send emails in production? Check out our Email API/SMTP product!
-if DEBUG:
-    EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-    EMAIL_HOST_USER = '777e0d15e6c1b9'
-    EMAIL_HOST_PASSWORD = '8dfdbdbd700e2d'
-    EMAIL_PORT = '2525'
-else:   
-    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_HOST = "smtp.gmail.com"
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-    EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+# if DEBUG:
+#     EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+#     EMAIL_HOST_USER = '777e0d15e6c1b9'
+#     EMAIL_HOST_PASSWORD = '8dfdbdbd700e2d'
+#     EMAIL_PORT = '2525'
+# else:   
+#     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+#     EMAIL_HOST = "smtp.gmail.com"
+#     EMAIL_PORT = 587
+#     EMAIL_USE_TLS = True
+#     EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+#     EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 
 # Application definition
@@ -96,12 +97,20 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Define my database for local host and production
+if DEBUG: #debug is true
+    # Local sqlit3 configuration for local host development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:  #  Production configuration (PostgreSQL via railway) 
+    DATABASES = {
+        'default': dj_database_url.parse(config('DATABASE_URL'))
+    }
+
 
 
 # Password validation
