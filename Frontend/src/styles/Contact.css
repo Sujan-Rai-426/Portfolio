@@ -145,10 +145,10 @@
         transform: translateY(-80%);
         background: #afafb6;
     }
-    .contact-section .contact-left .address-detail, .phone-detail, .email-detail{
+    /* .contact-section .contact-left .address-detail, .phone-detail, .email-detail{
         padding: 10px 15px;
         height: 15vh;
-    }
+    } */
     .contact-section .contact-left .address-detail i , .phone-detail i , .email-detail i {
         font-size: 1.1rem;
         color: #4912e4;
@@ -161,6 +161,7 @@
     .contact-section .contact-left .address-detail p , .phone-detail p , .email-detail p {
         font-size: .6rem;
         color: white;
+        margin: 0;
     }
     
     /* Form Side */
