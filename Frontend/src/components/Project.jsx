@@ -9,6 +9,8 @@ import "../styles/Utility.css"
 
 
 function Project() {
+    // Loading Indicator untill project is loaded
+    const [loading, setLoading] = useState(false);
 
     // baseURL cloudinary link
     const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dusqlukhy/";
@@ -31,8 +33,14 @@ function Project() {
     }, []);
 
 
-    // Loading Indicator untill project is loaded
-    const [loading, setLoading] = useState(false);
+    if (loading) {
+        return( 
+            <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', minHeight: '70vh'}}> 
+                <h1>{<Loading_Indicator />} </h1><br />
+                <p> Loading... </p>
+            </div>
+    );
+    }
 
     return (
 
@@ -79,7 +87,7 @@ function Project() {
     </div>
     ) : (
         <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
-            <h3>Fetching from api... </h3> 
+            <h3>Fetching Data from api... </h3> 
                 <br />
                 {/* Loading indicator */}
             <b> {loading && <Loading_Indicator />} </b>
