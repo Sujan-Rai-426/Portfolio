@@ -2,45 +2,31 @@
 
 
 import React, {useState, useEffect} from 'react'
-import api from '../api';
 import Loading_Indicator from './Loading_Indicator';
+import api from '../api';
 import "../styles/Project.css"
 import "../styles/Utility.css"
 
 
 function Project() {
     // Loading Indicator untill project is loaded
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     // baseURL cloudinary link
     const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dusqlukhy/";
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         // Fetch Projects from API
-        const fetchProjects = async () => {
-            try {
-                const response = await api.get("/api/Project/");
-                console.log(response.data);
+        api.get("/api/Project/")
+            .then((response) => {
+                console.log(response.data)
                 setProjects(response.data.data); // Update state with API response
-            } catch (error) {
-                console.error("Error fetching projects:", error);
-            } finally {
-                setLoading(false); // Remove loading indicator after above process
-            }
-        };
-
-        fetchProjects();
+            })
+            .catch((error) => console.error("Error fetching projects:", error))
+            .finally(() => setLoading(false));
     }, []);
 
-        // Loading Indicator untill project is loaded
-    if (loading) {
-        return( 
-            <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', minHeight: '70vh'}}> 
-                <h1>{<Loading_Indicator />} </h1><br />
-                <p> Loading... </p>
-            </div>
-    );
-    }
+
 
     return (
 
@@ -52,47 +38,45 @@ function Project() {
             </div>
 
         <div className="project-container">
-    {/* {projects.length > 0 ? ( */}
-    <div className="project-grid">
-        {projects.map((project) => (
-            <div key={project.id} className="project-card">
-                <div className="project-image-wrapper">
-                    <img src={`${CLOUDINARY_BASE_URL}${project.image}`} alt={project.name} />
-                    <span className="project-website-type">{project.website_type}</span>
-                    <div className="info-icon">
-                        <span className="info-tooltip">{project.detail}</span>
-                        <i> <i className="bi bi-info-circle-fill"></i> </i>
+        {loading ? (
+                    <div className="loading-wrapper">
+                        {/* Show the loading indicator when loading is true */}
+                        <Loading_Indicator /> Fetching from api...
                     </div>
-                </div>
-                <div className="project-card-detail">
-                    <h1>{project.name}</h1>
-                    <p>{project.description}</p>
+                ) : (
+                    <div className="project-grid">
+                        {projects.map((project) => (
+                            <div key={project.id} className="project-card">
+                                <div className="project-image-wrapper">
+                                    <img src={`${CLOUDINARY_BASE_URL}${project.image}`} alt={project.name} />
+                                    <span className="project-website-type">{project.website_type}</span>
+                                    <div className="info-icon">
+                                        <span className="info-tooltip">{project.detail}</span>
+                                        <i><i className="bi bi-info-circle-fill"></i></i>
+                                    </div>
+                                </div>
+                                <div className="project-card-detail">
+                                    <h1>{project.name}</h1>
+                                    <p>{project.description}</p>
 
-                    {/* Tech Stack Section */}
-            {project.tech_stack && project.tech_stack.length > 0 && (
-                    <div className="tech-stack my-0">
-                        <ul>
-                            {project.tech_stack.map((tech, index) => (
-                                <li key={`${project.id}-${tech.name}`}>{tech.name}</li>
-                            ))}
-                        </ul>
+                                    {/* Tech Stack Section */}
+                                    {project.tech_stack && project.tech_stack.length > 0 && (
+                                        <div className="tech-stack my-0">
+                                            <ul>
+                                                {project.tech_stack.map((tech, index) => (
+                                                    <li key={`${project.id}-${tech.name}`}>{tech.name}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+
+                                    {/* Visit button */}
+                                    <a href={project.link} className="btn my-2">Visit website</a>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-            )}
-                        {/* Visit button  */}
-                    <a href={project.link} className='btn my-2'> Visit website </a>
-                </div>
-
-            </div>
-        ))}
-    </div>
-    {/* ) : (
-        <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
-            <h3>Fetching Data from api... </h3> 
-                <br />
-            <b> {loading && <Loading_Indicator />} </b>
-        </div>
-        
-    )} */}
+                )}
 </div>
 
 
