@@ -59,6 +59,7 @@
 .contact-section .contact-left .address-detail p , .phone-detail p , .email-detail p {
     font-size: 1rem;
     color: rgb(198, 198, 198);
+    margin: 0;
 }
 
 .contact-section .contact-right{
