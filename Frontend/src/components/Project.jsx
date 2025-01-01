@@ -3,6 +3,7 @@
 
 import React, {useState, useEffect} from 'react'
 import api from '../api';
+import Loading_Indicator from './Loading_Indicator';
 import "../styles/Project.css"
 import "../styles/Utility.css"
 
@@ -11,18 +12,27 @@ function Project() {
 
     // baseURL cloudinary link
     const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dusqlukhy/";
-
     const [projects, setProjects] = useState([]);
-
     useEffect(() => {
         // Fetch Projects from API
-        api.get("/api/Project/")
-            .then((response) => {
-                console.log(response.data)
+        const fetchProjects = async () => {
+            try {
+                const response = await api.get("/api/Project/");
+                console.log(response.data);
                 setProjects(response.data.data); // Update state with API response
-            })
-            .catch((error) => console.error("Error fetching projects:", error));
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+            } finally {
+                setLoading(true);
+            }
+        };
+
+        fetchProjects();
     }, []);
+
+
+    // Loading Indicator untill project is loaded
+    const [loading, setLoading] = useState(false);
 
     return (
 
@@ -68,7 +78,13 @@ function Project() {
         ))}
     </div>
     ) : (
-        <p>No projects to display.</p>
+        <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
+            <h3>Fetching from api... </h3> 
+                <br />
+                {/* Loading indicator */}
+            <b> {loading && <Loading_Indicator />} </b>
+        </div>
+        
     )}
 </div>
 
