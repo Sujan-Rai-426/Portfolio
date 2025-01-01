@@ -1,0 +1,8 @@
+{
+    "redirects": [
+        { "source": "/www", "destination": "/", "permanent": true }
+    ],
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+    ]
+}
