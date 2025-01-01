@@ -25,14 +25,14 @@ function Project() {
             } catch (error) {
                 console.error("Error fetching projects:", error);
             } finally {
-                setLoading(true);
+                setLoading(false); // Remove loading indicator after above process
             }
         };
 
         fetchProjects();
     }, []);
 
-
+        // Loading Indicator untill project is loaded
     if (loading) {
         return( 
             <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', minHeight: '70vh'}}> 
