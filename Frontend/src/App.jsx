@@ -40,7 +40,7 @@ function App() {
       <Router>
         <Navbar mode={mode} toggleMode={toggleMode} />
 
-        <div className='container' style={{padding: '8vh 0'}}>
+        <div className='container' style={{padding: '5vh 0'}}>
           <Routes >
               <Route exact path="/" element={<Home />} > </Route>
               {/* <Route exact path="/skill" element={<SkillAndService />} > </Route> */}

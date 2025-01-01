@@ -51,6 +51,7 @@ section{
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 600;
     font-style: normal;
+    margin: 0;
 }
 .text-timeNewRoman{
     font-family: 'Times New Roman', Times, serif;
@@ -136,7 +137,7 @@ a .btn {
     .hr{
         border: 0;
         height: 1.3px;
-        margin: 50px 20px;
+        margin: 10px 20px;
     }
     .section-primary-heading{
         color: gray;
@@ -189,7 +190,7 @@ a .btn {
     .hr{
         border: 0;
         height: 1.3px;
-        margin: 50px 40px;
+        margin: 30px 40px;
     }
     .text-Primary-heading{
         font-size: 1rem;
