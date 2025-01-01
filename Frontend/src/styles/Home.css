@@ -60,7 +60,7 @@
 /* ------------------For Mobile Screen-------------------- */
 @media (max-width:799px){
     #HOME{
-        padding: 40px 0 0 0;
+        padding: 20px 0 0 0;
         margin: 0;
     }
     .home-section{
@@ -101,7 +101,7 @@
 /* ------------------------For ipad or Tab screen------------------------------ */
 @media (min-width: 799px) and (max-width: 1225px) {
     #HOME{
-        padding-top: 120px;
+        padding-top: 50px;
     }
     .home-section{
         height: auto;

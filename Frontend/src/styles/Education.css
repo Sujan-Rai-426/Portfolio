@@ -148,7 +148,7 @@
 @media (max-width:799px){
     #EDUCATION {
         width: 100%;
-        padding: 38px 0 25px 0;
+        padding: 18px 0 15px 0;
     }
     .education-section{
         padding-bottom: 0;
@@ -202,7 +202,7 @@
 @media (min-width: 799px) and (max-width: 1225px) {
     #EDUCATION{
         width: 99%;
-        padding: 70px 5px 0px 5px;
+        padding: 40px 5px 0px 5px;
     }
     .timeline{
         width: 100%;
