@@ -39,7 +39,7 @@ function Project() {
 
         <div className="project-container">
         {loading ? (
-                    <div className="loading-wrapper">
+                    <div style={{ textAlign: "center" }}>
                         {/* Show the loading indicator when loading is true */}
                         <Loading_Indicator /> Fetching from api...
                     </div>

@@ -1,12 +1,15 @@
 
 
 import React, { useEffect, useState } from 'react'
+import Loading_Indicator from './Loading_Indicator';
 import api from '../api';
 import "../styles/Skills_Services.css"
 import "../styles/Utility.css"
 
 function Skills() {
 
+    // Loading Indicator untill project is loaded
+    const [loading, setLoading] = useState(true);
     
     // Fetch Frontend Skill from API
     const [frontendSkills, setFrontendSkills] = useState([]);
@@ -16,7 +19,8 @@ function Skills() {
                 console.log(response.data)
                 setFrontendSkills(response.data.data); // Update state with API response
             })
-            .catch((error) => console.error("Error fetching Frontend Skill:", error));
+            .catch((error) => console.error("Error fetching Frontend Skill:", error))
+            .finally(() => setLoading(false));
         }, []);
     
     
@@ -28,7 +32,8 @@ function Skills() {
             console.log(response.data)
             setBackendSkills(response.data.data); // Update state with API response
         })
-        .catch((error) => console.error("Error fetching Backend Skill:", error));
+        .catch((error) => console.error("Error fetching Backend Skill:", error))
+        .finally(() => setLoading(false));
     }, []);
     
     
@@ -57,39 +62,57 @@ function Skills() {
                         
                         <div className="Front-End-Skill">
                             <h1 className="text-center text-ibm text-Primary-heading"> Front End </h1>
-                            {/* <!-------------------- For front-end-skill upload from database dynamically --------------------> */}
-                {frontendSkills.map((skill, index) => (
-                    
-                    <li key={skill.id}>
-                                    <div className="skill-name">
-                                        <h3 className="text-ibm text-Secondary-heading">{skill.name }</h3> 
-                                        <p className="text-ibm text-Secondary-paragraph">{skill.percentage } %</p>
-                                    </div>
 
-                                    <div className="bar">
-                                        <span className="bar-fill" style={{ width: `${skill.percentage}%` }}> </span> 
+                            {loading ? (
+                                    <div style={{ textAlign: "center" }}>
+                                        {/* Show the loading indicator when loading is true */}
+                                        <Loading_Indicator /> Fetching from api...
                                     </div>
-                                </li>
-                    ))}
+                                ) : (  
+                                    <div>
+                                            {/* <!-------------------- For front-end-skill upload from database dynamically --------------------> */}
+                                        {frontendSkills.map((skill, index) => (
+                                            
+                                            <li key={skill.id}>
+                                                <div className="skill-name">
+                                                    <h3 className="text-ibm text-Secondary-heading">{skill.name }</h3> 
+                                                    <p className="text-ibm text-Secondary-paragraph">{skill.percentage } %</p>
+                                                </div>
+
+                                                <div className="bar">
+                                                    <span className="bar-fill" style={{ width: `${skill.percentage}%` }}> </span> 
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </div>      
+                                )}
                         </div>
-                        <div className="Back-End-Skill">
-                            <h1 className="text-center text-ibm text-Primary-heading"> Back End </h1>
-
+                        
+                <div className="Back-End-Skill">
+                    <h1 className="text-center text-ibm text-Primary-heading"> Back End </h1>
+                {loading ? (
+                    <div style={{ textAlign: "center" }}>
+                        {/* Show the loading indicator when loading is true */}
+                        <Loading_Indicator /> Fetching from api...
+                    </div>
+                ) : (  
+                    <div>
                             {/* <!-------------------- For front-end-skill upload from database dynamically --------------------> */}
-                    {backendSkills.map((skill, index) => (
-                                <li key={skill.id}>
-                                    <div className="skill-name">
-                                        <h3 className="text-ibm text-Secondary-heading">{skill.name}</h3> 
-                                        <p className="text-ibm text-Secondary-paragraph">{skill.percentage} %</p>
-                                    </div>
+                        {backendSkills.map((skill, index) => (
+                            <li key={skill.id}>
+                                <div className="skill-name">
+                                    <h3 className="text-ibm text-Secondary-heading">{skill.name}</h3> 
+                                    <p className="text-ibm text-Secondary-paragraph">{skill.percentage} %</p>
+                                </div>
 
-                                    <div className="bar">
-                                        <span className="bar-fill" style={{ width: `${skill.percentage}%` }}> </span> 
-                                    </div>
-                                </li>
-                    ))}
-
-                        </div>
+                                <div className="bar">
+                                    <span className="bar-fill" style={{ width: `${skill.percentage}%` }}> </span> 
+                                </div>
+                            </li>
+                        ))}
+                    </div>
+                )}
+            </div>
                         
                     </ul>
                         <br />
