@@ -52,7 +52,7 @@ function Project() {
             </div>
 
         <div className="project-container">
-    {projects.length > 0 ? (
+    {/* {projects.length > 0 ? ( */}
     <div className="project-grid">
         {projects.map((project) => (
             <div key={project.id} className="project-card">
@@ -85,15 +85,14 @@ function Project() {
             </div>
         ))}
     </div>
-    ) : (
+    {/* ) : (
         <div style={{display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
             <h3>Fetching Data from api... </h3> 
                 <br />
-                {/* Loading indicator */}
             <b> {loading && <Loading_Indicator />} </b>
         </div>
         
-    )}
+    )} */}
 </div>
 
 
