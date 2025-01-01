@@ -64,7 +64,7 @@ function Skills() {
                             <h1 className="text-center text-ibm text-Primary-heading"> Front End </h1>
 
                             {loading ? (
-                                    <div style={{ textAlign: "center" }}>
+                                    <div style={{ display:'flex', alignItems:'center', justifyContent:'center', minHeight:'40vh' }}>
                                         {/* Show the loading indicator when loading is true */}
                                         <Loading_Indicator /> Fetching from api...
                                     </div>
@@ -91,7 +91,7 @@ function Skills() {
                 <div className="Back-End-Skill">
                     <h1 className="text-center text-ibm text-Primary-heading"> Back End </h1>
                 {loading ? (
-                    <div style={{ textAlign: "center" }}>
+                    <div style={{ display:'flex', alignItems:'center', justifyContent:'center', minHeight:'40vh' }}>
                         {/* Show the loading indicator when loading is true */}
                         <Loading_Indicator /> Fetching from api...
                     </div>

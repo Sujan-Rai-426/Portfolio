@@ -39,7 +39,7 @@ function Project() {
 
         <div className="project-container">
         {loading ? (
-                    <div style={{ textAlign: "center" }}>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
                         {/* Show the loading indicator when loading is true */}
                         <Loading_Indicator /> Fetching from api...
                     </div>
@@ -64,7 +64,7 @@ function Project() {
                                         <div className="tech-stack my-0">
                                             <ul>
                                                 {project.tech_stack.map((tech, index) => (
-                                                    <li key={`${project.id}-${tech.name}`}>{tech.name}</li>
+                                                    <li key={`${project.id}-${tech.name}`}><i>{tech.name}</i></li>
                                                 ))}
                                             </ul>
                                         </div>
