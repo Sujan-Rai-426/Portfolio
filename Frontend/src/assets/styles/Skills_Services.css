@@ -1,0 +1,167 @@
+
+ul{
+    padding: 0;
+}
+
+#SKILL{
+    width: 100%;
+}
+.skill-section{
+    width: 75%;
+    height: 80%;
+    padding: 0 13px;
+    text-align: center;
+    margin: 0 auto;
+    transition: .1s ease-out;
+    /* color: #fff; */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* border: .2px solid rgb(5, 189, 171);
+    border-radius: 25px;
+    /* box-shadow: .5px .5px 1.5px rgba(241, 233, 233, 0.25), 2px 5px 10px rgba(5, 179, 195, 0.5); */
+    /* mix-blend-mode: difference;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px); */ 
+}
+/* .skill-section:hover{
+    transition: .2s;
+    border-radius: 15px;
+    border: .2px solid rgb(187, 59, 219);
+    box-shadow: .5px .5px 1.5px rgb(187, 59, 219);
+} */
+.skill-level{
+    text-align: left;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+.skill-section .skill-level li{
+    list-style: none;
+    margin: 30px 30px;
+    font-weight: 100;
+}
+.Front-End-Skill{
+    margin: 8px 1.5px 8px 1.5px;
+    padding-top: 15px;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(25px);
+    border: 1px solid;
+}
+.Back-End-Skill{
+    margin: 8px 1.5px 8px 1.5px;
+    padding-top: 15px;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(25px);
+    border: 1px solid;
+}
+.skill-name{
+    display: flex; 
+    justify-content:space-between;
+}
+.skill-name div p{
+    font-size: 1.3rem;
+    /* color: gray; */
+    margin-top: 3px;
+}
+.bar{
+    height: 6px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid gray;
+    background-color: #353b48;
+}
+.bar:hover{
+    height: 6.5px;
+    box-shadow: 1px 1px 3px rgba(241, 233, 233, 0.25), 1px 4px 8px rgba(5, 179, 195, 0.5);
+}
+.bar-fill{
+    height: 5px;
+    position: absolute;
+    background: linear-gradient(135deg, rgb(175, 5, 169) 0%, rgb(49, 250, 196)100%);
+    animation: fill-animation 3s;
+}
+        /*  for skill flow animation */
+        @keyframes fill-animation{
+            from{
+                width: 0%;
+            }
+            to{
+                width: width;
+            }
+        }
+
+
+
+        /* ------------------For Mobile Screen-------------------- */
+@media (max-width:799px){
+    #SKILL{
+        width: 100%;
+        padding: 39px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .skill-level{
+        gap: .5px
+    }
+    .skill-section{
+        width: 92%;
+        padding: 0 1px;
+        margin: 5px 0px;
+    }
+    .skill-section .skill-level li {
+        list-style: none;
+        margin: 19px 15px;
+        font-weight: 100;
+    }
+    .bar {
+        height: 4px;
+        margin-top: 3.3px;
+    }
+    .bar-fill {
+        height: 3.5px;
+    }
+    .skill-level {
+        text-align: left;
+        padding: 1px 1px;
+        margin: 0;
+        flex-direction: row;
+    }
+    .Front-End-Skill, .Back-End-Skill{
+        margin: 3px 2.5px 3px 2.5px;
+        padding-top: 5px;
+    }
+}
+
+
+
+
+/* ------------------------For ipad or Tab screen------------------------------ */
+@media (min-width: 799px) and (max-width: 1225px) {
+    #SKILL{
+        width: 100%;
+    }
+    .skill-section{
+        width: 85%;
+        padding: 0 1px;
+    }
+    .skill-level {
+        text-align: left;
+        padding: 1px 5px;
+        margin: 0 5px;
+        flex-direction: row;
+    }
+    .Front-End-Skill, .Back-End-Skill{
+        margin: 3px 2.5px 3px 2.5px;
+        padding-top: 5px;
+    }
+}

@@ -1,0 +1,31 @@
+
+
+/* Footer.css */
+.footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 2px;
+    top:100vh;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    position : sticky;
+    gap: 5px;
+}
+
+.footer-content {
+    width: 100vw;
+}
+
+.footer-icon-container {
+    margin-top: 15px;
+}
+
+.footer-icon {
+    margin: 0 10px;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+}
