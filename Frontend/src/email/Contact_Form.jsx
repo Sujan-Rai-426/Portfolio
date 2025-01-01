@@ -1,8 +1,8 @@
 
 
 import React, { useEffect, useState } from 'react'
-import "../assets/styles/Contact.css"
-import "../assets/styles/Utility.css"
+import "../styles/Contact.css"
+import "../styles/Utility.css"
 import api from '../api';
 
 function Contact_Form() {

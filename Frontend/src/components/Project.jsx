@@ -3,8 +3,8 @@
 
 import React, {useState, useEffect} from 'react'
 import api from '../api';
-import "../assets/styles/Project.css"
-import "../assets/styles/Utility.css"
+import "../styles/Project.css"
+import "../styles/Utility.css"
 
 
 function Project() {

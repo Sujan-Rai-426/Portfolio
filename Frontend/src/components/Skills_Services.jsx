@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import api from '../api';
-import "../assets/styles/Skills_Services.css"
-import "../assets/styles/Utility.css"
+import "../styles/Skills_Services.css"
+import "../styles/Utility.css"
 
 function Skills() {
 

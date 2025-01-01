@@ -5,17 +5,17 @@ import React, {useState, useEffect} from 'react'
 import api from '../api';
 
 // image import
-import DEVELOPER_image from '../assets/images/developer.webp'
-import SUJAN1_image from '../assets/images/sujan1.jpg'
-import MBCOE_image from '../assets/images/mbcoe.png'
-import Amar_image from '../assets/images/Amar.png'
-import Bishnu_image from '../assets/images/Bishnu.jpg'
+import DEVELOPER_image from '../images/developer.webp'
+import SUJAN1_image from '../images/sujan1.jpg'
+import MBCOE_image from '../images/mbcoe.png'
+import Amar_image from '../images/Amar.png'
+import Bishnu_image from '../images/Bishnu.jpg'
 
 // css stylesheet import
-import '../assets/styles/Home.css'
-import '../assets/styles/About.css'
-import '../assets/styles/Education.css'
-import '../assets/styles/Utility.css'
+import '../styles/Home.css'
+import '../styles/About.css'
+import '../styles/Education.css'
+import '../styles/Utility.css'
 
 function Home() {
 
