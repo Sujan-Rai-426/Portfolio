@@ -41,14 +41,14 @@ function Project() {
         {loading ? (
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
                         {/* Show the loading indicator when loading is true */}
-                        <Loading_Indicator /> Fetching from api...
+                        <Loading_Indicator />
                     </div>
                 ) : (
                     <div className="project-grid">
                         {projects.map((project) => (
                             <div key={project.id} className="project-card">
                                 <div className="project-image-wrapper">
-                                    <img src={`${CLOUDINARY_BASE_URL}${project.image}`} alt={project.name} />
+                                    <a href={project.link}> <img src={`${CLOUDINARY_BASE_URL}${project.image}`} alt={project.name} /> </a>
                                     <span className="project-website-type">{project.website_type}</span>
                                     <div className="info-icon">
                                         <span className="info-tooltip">{project.detail}</span>
@@ -57,7 +57,7 @@ function Project() {
                                 </div>
                                 <div className="project-card-detail">
                                     <h1>{project.name}</h1>
-                                    <p>{project.description}</p>
+                                    
 
                                     {/* Tech Stack Section */}
                                     {project.tech_stack && project.tech_stack.length > 0 && (
@@ -71,7 +71,7 @@ function Project() {
                                     )}
 
                                     {/* Visit button */}
-                                    <a href={project.link} className="btn my-2">Visit website</a>
+                                    {/* <small><a href={project.link} className="btn my-2">Visit website</a></small> */}
                                 </div>
                             </div>
                         ))}

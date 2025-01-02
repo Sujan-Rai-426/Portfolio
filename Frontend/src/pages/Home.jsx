@@ -2,6 +2,8 @@
 
 
 import React, {useState, useEffect} from 'react'
+import Typed from 'typed.js';
+import Loading_Indicator from '../components/Loading_Indicator';
 import api from '../api';
 
 // image import
@@ -47,6 +49,7 @@ function Home() {
 // <-------------------------------ABOUT JS------------------------------->
     // For API of CurrentAddress
         const [curr_addrs, setCurr_Addrs] = useState([]);
+        const [loading, setLoading] = useState(true);
         useEffect(() => {
             // Fetch CurrentAddrss data from API
             api.get("/api/CurrentAddress/")
@@ -54,7 +57,8 @@ function Home() {
                     console.log(response.data)
                     setCurr_Addrs(response.data.data); // Update state with API response
                 })
-                .catch((error) => console.error("Error fetching current address:", error));
+                .catch((error) => console.error("Error fetching current address:", error))
+                .finally(() => setLoading(false));
         }, []);
         
         
@@ -144,11 +148,20 @@ function Home() {
                             <br />
                         
 
-                    {/* use fetched api of  CurrentAddress Model */}
-                {downloads.map((download) => (
-                            <a key={download.id} href={`${CLOUDINARY_BASE_URL}${ download.file}`} className="btn" download={download.name} type="submit">Download CV <i className="fa-solid fa-download"></i> </a>
-                    ))}
-
+        {loading ? (
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+                            {/* Show the loading indicator when loading is true */}
+                            <Loading_Indicator />
+                        </div>
+                    ) :(
+                        // use fetched api of  Download  Model to download CV
+                        <div>
+                            {downloads.map((download) => (
+                                <a key={download.id} href={`${CLOUDINARY_BASE_URL}${ download.file}`} className="btn" download={download.name} type="submit">Download CV <i className="fa-solid fa-download"></i> </a>
+                            )) } 
+                        </div> 
+                    )};
+                    
                         
                     </div>
 

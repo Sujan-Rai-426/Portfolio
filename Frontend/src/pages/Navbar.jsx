@@ -25,7 +25,7 @@ function Navbar(props) {
                 <div>
                     {/* <!-- SIDE BAR ACTIVE or on button --> */}
                     <input type="checkbox"  id="sidebar-active"/>
-                            <label id="overlay" htmlFor="sidebar-active" className="open-sidebar-button">
+                            <label id="overlay" htmlFor="sidebar-active" className="open-sidebar-button mx-4">
                                 <i className="fa-solid fa-bars"></i>
                             </label>
 
