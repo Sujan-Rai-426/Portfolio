@@ -50,7 +50,7 @@ function Contact_Form() {
 
     return (
         
-<section style={{height:'90vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+<section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
 
     <div className="contact-section">
             

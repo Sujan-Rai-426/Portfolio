@@ -7,10 +7,10 @@
     text-align: center;
     padding: 10px 0;
     margin-top: 2px;
-    bottom: 0;
+    top: 100vh;
     left: 0;
     right: 0;
-    /* position : fixed; */
+    position : sticky;
     z-index: 100;
     gap: 5px;
 }
