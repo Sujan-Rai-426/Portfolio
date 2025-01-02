@@ -100,7 +100,7 @@ function Home() {
 
     
                             <div className="btn-box">
-                            <a href="#CONTACT-ME"> <button className="btn" type="submit">  Message <i className="bi bi-send-plus-fill"></i></button> </a>
+                            <Link to="/contact"> <button className="btn" type="submit">  Message <i className="bi bi-send-plus-fill"></i></button> </Link>
                             <a href="https://leetcode.com/u/sujan-426/"> <button type="submit" className="btn">Leetcode </button></a>
                             </div>
                     </div>
