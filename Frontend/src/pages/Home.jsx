@@ -149,7 +149,7 @@ function Home() {
                         
 
         {loading ? (
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
                             {/* Show the loading indicator when loading is true */}
                             <Loading_Indicator />
                         </div>
@@ -160,7 +160,7 @@ function Home() {
                                 <a key={download.id} href={`${CLOUDINARY_BASE_URL}${ download.file}`} className="btn" download={download.name} type="submit">Download CV <i className="fa-solid fa-download"></i> </a>
                             )) } 
                         </div> 
-                    )};
+                    )}
                     
                         
                     </div>
