@@ -142,9 +142,9 @@
         border-radius: 13px;
         font-size: .7rem;
         border: .4px solid;
-        transition: .3s ease-in-out;
+        transition: .15s ease-in-out;
     }
     .tech-stack li:hover {
         font-size: .85rem;
-        transition: .3s ease-in-out;
+        transition: .15s ease-in-out;
     }
