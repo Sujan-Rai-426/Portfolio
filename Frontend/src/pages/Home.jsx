@@ -16,6 +16,7 @@ import '../styles/Home.css'
 import '../styles/About.css'
 import '../styles/Education.css'
 import '../styles/Utility.css'
+import { Link } from 'react-router-dom';
 
 function Home() {
 
