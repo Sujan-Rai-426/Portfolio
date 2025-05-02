@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+// For Vercel Analytics
+import { Analytics } from "@vercel/analytics/react"
+
 import './App.css'
 
 import Navbar from './pages/Navbar.jsx'
@@ -47,6 +50,10 @@ function App() {
               <Route exact path="/skills-services" element={<Skills_Services />} > </Route>
               <Route exact path="/projects" element={<Project />} > </Route>
               <Route exact path="/contact" element={<Contact_Form />} > </Route>
+
+
+              {/* For vercel analytics */}
+              <Analytics />
           </Routes>
         </div>
 
