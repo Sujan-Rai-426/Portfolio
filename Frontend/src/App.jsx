@@ -50,15 +50,14 @@ function App() {
               <Route exact path="/skills-services" element={<Skills_Services />} > </Route>
               <Route exact path="/projects" element={<Project />} > </Route>
               <Route exact path="/contact" element={<Contact_Form />} > </Route>
-
-
-              {/* For vercel analytics */}
-              <Analytics />
           </Routes>
         </div>
 
-
           <Footer />
+
+          {/* For vercel analytics */}
+          <Analytics />
+          
       </Router>
     </div>
   )
