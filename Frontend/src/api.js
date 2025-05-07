@@ -2,9 +2,9 @@
 
 import axios  from "axios";
 
-const isProductions = import.meta.env.MODE === 'productions';
+const isProduction = import.meta.env.MODE === 'production';
 
-const apiURL = isProductions ? import.meta.env.VITE_API_URL_PRODUCTIONS : import.meta.env.VITE_API_URL_DEVELOPMENT;
+const apiURL = isProduction ? import.meta.env.VITE_API_URL_PRODUCTION : import.meta.env.VITE_API_URL_DEVELOPMENT;
 
 const api = axios.create(
     { baseURL : apiURL }
