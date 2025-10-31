@@ -41,38 +41,42 @@ function Project() {
                     </div>
                 ) : (
                     <div className="project-grid">
-                        {projects.map((project) => (
-                            <div key={project.id} className="project-card">
-                                <div className="project-image-wrapper">
-                                    <a href={project.link}>
-                                        <img src={`${CLOUDINARY_BASE_URL}${project.image}`} alt={project.name} />
-                                    </a>
-                                    <span className="project-website-type">{project.website_type}</span>
-                                    <div className="info-icon">
-                                        <span className="info-tooltip">{project.detail}</span>
-                                        <i className="bi bi-info-circle-fill"></i>
+                        {projects
+                            .slice() // make a copy to avoid mutating state
+                            .sort((a, b) => b.id - a.id) // descending order by id
+                            .map((project) => (
+                                <div key={project.id} className="project-card">
+                                    <div className="project-image-wrapper">
+                                        <a href={project.link}>
+                                            <img src={`${CLOUDINARY_BASE_URL}${project.image}`} alt={project.name} />
+                                        </a>
+                                        <span className="project-website-type">{project.website_type}</span>
+                                        <div className="info-icon">
+                                            <span className="info-tooltip">{project.detail}</span>
+                                            <i className="bi bi-info-circle-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div className="project-card-detail">
+                                        <h1>{project.name}</h1>
+
+                                        {project.tech_stack?.length > 0 && (
+                                            <div className="tech-stack my-0">
+                                                <ul>
+                                                    {project.tech_stack.map((tech) => (
+                                                        <li key={`${project.id}-${tech.name}`}>
+                                                            <i>{tech.name}</i>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
-                                <div className="project-card-detail">
-                                    <h1>{project.name}</h1>
-
-                                    {project.tech_stack?.length > 0 && (
-                                        <div className="tech-stack my-0">
-                                            <ul>
-                                                {project.tech_stack.map((tech) => (
-                                                    <li key={`${project.id}-${tech.name}`}>
-                                                        <i>{tech.name}</i>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
                         ))}
                     </div>
                 )}
             </div>
+
         </div>
     );
 }
