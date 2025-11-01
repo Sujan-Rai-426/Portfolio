@@ -105,8 +105,13 @@ function Home() {
 
     
                             <div className="btn-box">
-                            <Link to="/contact"> <button className="btn" type="submit">  Message <i className="bi bi-send-plus-fill"></i></button> </Link>
-                            <a href="https://leetcode.com/u/sujan-426/"> <button type="submit" className="btn">Leetcode </button></a>
+                            <Link to="/contact"> 
+                                <button className="btn" type="submit">  
+                                    Message <i className="bi bi-send-plus-fill"></i>
+                                </button> </Link>
+                            <a href="https://blog-code-verse.vercel.app/"> <button type="submit" className="btn"> 
+                                Code<sup><u>Verse💻</u></sup> 
+                            </button></a>
                             </div>
                     </div>
 
