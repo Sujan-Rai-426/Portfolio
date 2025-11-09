@@ -110,7 +110,7 @@ function Home() {
                                     Message <i className="bi bi-send-plus-fill"></i>
                                 </button> </Link>
                             <a href="https://blog-code-verse.vercel.app/"> <button type="submit" className="btn"> 
-                                Code<sup><u>Verse💻</u></sup> 
+                                Code<sup><u>Vora💻</u></sup> 
                             </button></a>
                             </div>
                     </div>
