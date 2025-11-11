@@ -156,19 +156,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-if DEBUG:  #for development
-    MEDIA_URL='/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'  # Access Local media folder
-    
-else: # for deployment
-    MEDIA_URL = f"https://res.cloudinary.com/{config('CLOUD_NAME')}/image/upload/"  # Cloudinary URLs
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage', # Access cloudinary folder for deployment
-    # CLOUDINARY storage for media files
+if not DEBUG:  # Production
+    MEDIA_URL = f"https://res.cloudinary.com/{config('CLOUD_NAME')}/image/upload/"
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': config('CLOUD_NAME'),
         'API_KEY': config('CLOUD_API_KEY'),
         'API_SECRET': config('CLOUD_API_SECRET'),
     }
+
 # Cloudinary Configuration
 cloudinary.config(
     cloud_name=config('CLOUD_NAME'),
@@ -185,4 +181,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #  Manually added corsheaders
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
