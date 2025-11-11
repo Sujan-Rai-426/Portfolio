@@ -17,7 +17,7 @@ function Navbar(props) {
                 <div className="nav-left">
 
 
-                    <h2><a href="https://sujan-portfolio.onrender.com/admin/" className='px-5'>SUJAN</a></h2>
+                    <h2><a href="https://portfolio-backend-silk-xi.vercel.app/" className='px-5'>SUJAN</a></h2>
                 </div>
 
 
