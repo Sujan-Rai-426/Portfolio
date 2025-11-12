@@ -90,7 +90,8 @@ function Home_Hero() {
                         </picture>
                     </div>
 
-                </section>  
+                </section> 
+                
             </div>
     )
 }

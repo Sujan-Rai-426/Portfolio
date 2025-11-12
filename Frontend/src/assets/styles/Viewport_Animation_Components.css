@@ -1,0 +1,40 @@
+/* AnimatedSection.css */
+
+.animated-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* Fade-up animation */
+.animated-section.fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-left animation */
+.animated-section.fade-left {
+    transform: translateX(-50px);
+}
+.animated-section.fade-left.in-view {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Fade-right animation */
+.animated-section.fade-right {
+    transform: translateX(50px);
+}
+.animated-section.fade-right.in-view {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Fade-down animation */
+.animated-section.fade-down {
+    transform: translateY(-50px);
+}
+.animated-section.fade-down.in-view {
+    transform: translateY(0);
+    opacity: 1;
+}

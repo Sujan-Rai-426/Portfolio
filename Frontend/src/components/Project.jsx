@@ -156,6 +156,7 @@ function Project() {
             ))
         )}
       </div>
+      <br />
     </div>
   );
 }

@@ -57,11 +57,11 @@ function Navbar({ toggleMode, mode }) {
                         </a>
 
                         <a href="#ABOUT" onClick={(e) => handleScroll(e, "ABOUT")}>
-                            <li><i className="fa-solid fa-briefcase"></i> ABOUT</li>
+                            <li><i className="bi bi-person-fill"></i> ABOUT</li>
                         </a>
 
                         <a href="#EDUCATION" onClick={(e) => handleScroll(e, "EDUCATION")}>
-                            <li><i className="bi bi-rocket-fill"></i> Education</li>
+                            <li><i className="bi bi-mortarboard-fill"></i> Education</li>
                         </a>
 
                         <a href="#SKILL" onClick={(e) => handleScroll(e, "SKILL")}>

@@ -22,13 +22,11 @@ function Home() {
             {/* -------------------HOME HERO SECTION -------------------------------- */}
         <Home_Hero />
 
-<hr className='hr'/>
 
 
         {/* ----------------ABOUT SECTION ---------------------------------- */}
         <About />
 
-<hr className='hr'/>
 
 
         {/* ----------------Education Section--------------------------- */}

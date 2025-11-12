@@ -51,7 +51,6 @@ function Contact_Form() {
     return (
         
 <section id='CONTACT-FORM' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-        <h1 style={{margin:0, padding:0}}>Contact Us</h1>
     <div className="contact-section">
             
             <div className="contact-left">

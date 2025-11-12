@@ -1,90 +1,107 @@
-import React, { useEffect, useState } from 'react'
-import api from '../api'
-import Loading_Indicator from '../components/Loading_Indicator';
-import SUJAN1_image from '../assets/images/sujan1.jpg'
-import '../assets/styles/About.css'
+import React, { useEffect, useState } from "react";
+import api from "../api";
+import Loading_Indicator from "../context/Loading_Indicator";
+import SUJAN1_image from "../assets/images/sujan1.jpg";
+import "../assets/styles/About.css";
+import Viewport_Animation_Components from "../context/Viewport_Animation_Components";
 
+const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dusqlukhy/";
 
+const About = () => {
+    const [currAddrs, setCurrAddrs] = useState([]);
+    const [downloads, setDownloads] = useState([]);
+    const [loadingAddr, setLoadingAddr] = useState(true);
+    const [loadingDownloads, setLoadingDownloads] = useState(true);
+    const [errorAddr, setErrorAddr] = useState(null);
+    const [errorDownloads, setErrorDownloads] = useState(null);
 
-function About() {
+    // Fetch Current Address
+    useEffect(() => {
+        api
+        .get("/api/CurrentAddress/")
+        .then((res) => setCurrAddrs(res.data.data))
+        .catch((err) => setErrorAddr("Failed to load address"))
+        .finally(() => setLoadingAddr(false));
+    }, []);
 
-
- // For API of CurrentAddress
-        const [curr_addrs, setCurr_Addrs] = useState([]);
-        const [loading, setLoading] = useState(true);
-        useEffect(() => {
-            // Fetch CurrentAddrss data from API
-            api.get("/api/CurrentAddress/")
-                .then((response) => {
-                    console.log(response.data)
-                    setCurr_Addrs(response.data.data); // Update state with API response
-                })
-                .catch((error) => console.error("Error fetching current address:", error))
-                .finally(() => setLoading(false));
-        }, []);
-
-                // For API of Download model 'resume pdf'
-            // baseURL cloudinary link
-        const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/dusqlukhy/";
-        const [downloads, setDownloads] = useState([]);
-        useEffect(() => {
-            // Fetch CurrentAddrss data from API
-            api.get("/api/Download/")
-                .then((response) => {
-                    console.log(response.data)
-                    setDownloads(response.data.data); // Update state with API response
-                })
-                .catch((error) => console.error("Error fetching resume:", error));
-        }, []);
-
+    // Fetch Download CV
+    useEffect(() => {
+        api
+        .get("/api/Download/")
+        .then((res) => setDownloads(res.data.data))
+        .catch((err) => setErrorDownloads("Failed to load downloads"))
+        .finally(() => setLoadingDownloads(false));
+    }, []);
 
     return (
         <div id="ABOUT">
-            <h1 className="section-primary-heading"><i className="fa-solid fa-circle-info"></i> About</h1>
-            <span> <h2 className="section-secondary-heading">- Everything about me -</h2> </span>
+            <h1 className="section-primary-heading">
+                <i className="fa-solid fa-circle-info"></i> About
+            </h1>
+            <h2 className="section-secondary-heading">- Everything about me -</h2>
+
             <section className="about-section">
-
+                {/* LEFT IMAGE */}
+                <Viewport_Animation_Components animation="fade-left">
                 <div className="about-left">
-                    <img src={SUJAN1_image} loading="lazy" alt="sujan" />
+                    <img src={SUJAN1_image} alt="Sujan Rai" loading="lazy" />
                 </div>
+                </Viewport_Animation_Components>
 
-                
-                <div className="about-right">
-
-                    <p><b className="text-purple big-text">Hello!!!</b> This is Sujan. My current address is 
-                        
-                        {/* use fetched api of  CurrentAddress Model */}
-            {curr_addrs.map((address) => (
-                <b  key={address.id}  className="text-skyblue"> <i className="fa-solid fa-location-dot"></i> {address.location}.</b>
-            )) } 
-                        
-                            I love creating new things using imagination and bringing them to life. Currently I'm studying Computer Science & Engineering in <b className="text-purple">Madan Bhandari Collage of Engineering, Urlabari. </b> I spent most of my time infront of my computer developing or learning new skill and in free time I like to spend time with my family and friends.
-                    </p>
-                            
+                {/* RIGHT CONTENT */}
+                <Viewport_Animation_Components animation="fade-right">
+                    <div className="about-right">
+                        <p>
+                        <b className="text-purple big-text">Hello!!!</b> This is Sujan.
+                        My current address is{" "}
+                        {loadingAddr ? (
+                                <span>Loading address...</span>
+                            ) : errorAddr ? (
+                                <span className="text-red">{errorAddr}</span>
+                            ) : (
+                                currAddrs.map((address) => (
+                                <b key={address.id} className="text-skyblue">
+                                    {" "}
+                                    <i className="fa-solid fa-location-dot"></i> {address.location}.
+                                </b>
+                                ))
+                            )}
                         <br />
-                    
+                        I love creating new things using imagination and bringing them to
+                        life. Currently I'm studying Computer Science & Engineering in{" "}
+                        <b className="text-purple">
+                            Madan Bhandari College of Engineering, Urlabari.
+                        </b>{" "}
+                        I spend most of my time in front of my computer developing or
+                        learning new skills and in free time I like to spend time with my
+                        family and friends.
+                        </p>
 
-    {loading ? (
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
-                        {/* Show the loading indicator when loading is true */}
-                        <Loading_Indicator />
+                        {/* CV Download */}
+                        <div className="cv-download">
+                            {loadingDownloads ? (
+                                <Loading_Indicator />
+                            ) : errorDownloads ? (
+                                <span className="text-red">{errorDownloads}</span>
+                            ) : (
+                                downloads.map((download) => (
+                                <a
+                                    key={download.id}
+                                    href={`${CLOUDINARY_BASE_URL}${download.file}`}
+                                    className="btn"
+                                    download={download.name}
+                                >
+                                    Download CV <i className="fa-solid fa-download"></i>
+                                </a>
+                                ))
+                            )}
+                        </div>
                     </div>
-                ) :(
-                    // use fetched api of  Download  Model to download CV
-                    <div>
-                        {downloads.map((download) => (
-                            <a key={download.id} href={`${CLOUDINARY_BASE_URL}${ download.file}`} className="btn" download={download.name} type="submit">Download CV <i className="fa-solid fa-download"></i> </a>
-                        )) } 
-                    </div> 
-                )}
-                
-                    
-                </div>
-
+                </Viewport_Animation_Components>
             </section>
-
+            <br />
         </div>
-    )
-}
+    );
+};
 
-export default About
+export default About;
