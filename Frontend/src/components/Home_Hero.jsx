@@ -6,8 +6,6 @@ import DEVELOPER_image from '../assets/images/developer.webp'
 
 function Home_Hero() {
 
-
-        // <---------------------Home JS----------------------------->
     // npm install typed.js
     // <!-- Setup and start animation! -->
     useEffect(() => {
@@ -54,13 +52,17 @@ function Home_Hero() {
 
     
                             <div className="btn-box">
-                            <Link to="/contact"> 
-                                <button className="btn" type="submit">  
-                                    Message <i className="bi bi-send-plus-fill"></i>
-                                </button> </Link>
-                            <a href="https://blog-code-verse.vercel.app/"> <button type="submit" className="btn"> 
-                                Code<sup><u>Vora💻</u></sup> 
-                            </button></a>
+                                <a href="#CONTACT-FORM" onClick={(e) => handleScroll(e, "CONTACT-FORM")}> 
+                                    <button className="btn" type="submit">  
+                                        Message <i className="bi bi-send-plus-fill"></i>
+                                    </button> 
+                                </a>
+                                
+                                <a href="https://blog-code-verse.vercel.app/"> 
+                                    <button type="submit" className="btn"> 
+                                        Code<sup><u>Vora💻</u></sup> 
+                                    </button>
+                                </a>
                             </div>
                     </div>
 
