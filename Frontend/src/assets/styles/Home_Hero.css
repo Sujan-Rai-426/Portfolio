@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* Adjust based on navbar height */
+}
+
+/* --------------------- HOME HERO SECTION --------------------- */
+#HOME {
+    width: 100%;
+    margin: 0;
+}
+
+.home-section {
+    min-height: 80vh;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* --------------------- LEFT CONTENT --------------------- */
+.home-left {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+    text-align: left;
+    font-size: 2rem;
+    padding: 20px 0;
+    word-spacing: 3px;
+}
+
+.home-left h3 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.home-left h3 small {
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.home-left .text-skyblue {
+    color: #00c3ff;
+}
+
+.home-left h5 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: #ccc;
+}
+
+.home-left div p {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* --------------------- SOCIAL ICONS --------------------- */
+.logo-home ul {
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.logo-home ul li a {
+    font-size: 1.5rem;
+    color: #00c3ff;
+    transition: all 0.2s ease-in-out;
+}
+
+.logo-home ul li a:hover {
+    color: #ff69b4;
+    transform: scale(1.2);
+}
+
+/* --------------------- BUTTONS --------------------- */
+.btn-box {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: linear-gradient(135deg, #00c3ff, #ff69b4);
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* --------------------- RIGHT IMAGE --------------------- */
+.home-right {
+    flex: 1;
+    min-width: 280px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-right img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* --------------------- RESPONSIVE --------------------- */
+/* Tablet / iPad */
+@media (max-width: 1225px) {
+    .home-section {
+        padding: 20px 30px;
+        gap: 30px;
+    }
+
+    .home-left {
+        font-size: 1.8rem;
+    }
+
+    .home-left h3 {
+        font-size: 2rem;
+    }
+
+    .home-left h3 small {
+        font-size: 1.4rem;
+    }
+
+    .home-left h5 {
+        font-size: 1.2rem;
+    }
+
+    .home-right img {
+        max-width: 260px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 799px) {
+    .home-section {
+        flex-direction: column-reverse;
+        padding: 20px 15px;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .home-left {
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        padding: 0;
+    }
+
+    .home-left h3 {
+        font-size: 1.8rem;
+    }
+
+    .home-left h3 small {
+        font-size: 1.2rem;
+    }
+
+    .home-left h5 {
+        font-size: 1rem;
+    }
+
+    .home-left div p {
+        font-size: 0.95rem;
+    }
+
+    .logo-home ul {
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .logo-home ul li a {
+        font-size: 1.3rem;
+    }
+
+    .btn-box {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.95rem;
+    }
+
+    .home-right {
+        width: 90%;
+    }
+
+    .home-right img {
+        max-width: 210px;
+        margin-bottom: 10px;
+    }
+}

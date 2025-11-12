@@ -1,0 +1,129 @@
+/* ------------------------ About Section ------------------------ */
+#ABOUT {
+    width: 100%;
+    padding: 50px 0;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 50px;
+}
+
+/* --------------------- LEFT IMAGE --------------------- */
+.about-left {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-left img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 20%;
+    transition: all 0.4s ease;
+}
+
+.about-left img:hover {
+    border-radius: 30%;
+    box-shadow: 0 8px 20px rgba(128, 0, 128, 0.5);
+    transform: scale(1.05);
+}
+
+/* --------------------- RIGHT CONTENT --------------------- */
+.about-right {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 20px;
+    line-height: 1.8;
+    color: #eee;
+}
+
+.about-right .big-text {
+    color: #a855f7; /* Purple */
+    font-size: 1.6rem;
+}
+
+.about-right .text-skyblue {
+    color: #00c3ff;
+    margin-left: 5px;
+}
+
+.about-right a.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(135deg, #00c3ff, #a855f7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.about-right a.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------- RESPONSIVE --------------------- */
+/* Tablet / iPad */
+@media (max-width: 1225px) {
+    .about-section {
+        padding: 20px 30px;
+        gap: 25px;
+    }
+
+    .about-left img {
+        max-width: 300px;
+    }
+
+    .about-right {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 799px) {
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .about-left {
+        width: 90%;
+    }
+
+    .about-left img {
+        max-width: 250px;
+        border-radius: 20%;
+    }
+
+    .about-right {
+        width: 95%;
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .about-right a.btn {
+        padding: 8px 20px;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+}

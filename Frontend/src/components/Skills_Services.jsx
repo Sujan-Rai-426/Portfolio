@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react'
 import Loading_Indicator from './Loading_Indicator';
 import api from '../api';
-import "../styles/Skills_Services.css"
-import "../styles/Utility.css"
+import "../assets/styles/Skills_Services.css"
+import "../assets/styles/Utility.css"
 
 function Skills() {
 
@@ -124,7 +124,7 @@ function Skills() {
                     <hr />
 
                 {/* Services Section */}
-        <section id="SKILL" className='my-3'>
+        {/* <section id="SKILL" className='my-3'>
             <h1 className="section-primary-heading"><i className="bi bi-rocket-fill"></i>  My Skills </h1>
             <h2 className="section-secondary-heading"> - My overall technical skills -</h2>
 
@@ -138,7 +138,7 @@ function Skills() {
                     </div>
                     ))}
                 </div>
-        </section>
+        </section> */}
             
         </div>
 

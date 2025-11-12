@@ -1,0 +1,139 @@
+/* ------------------------ Skills Section ------------------------ */
+#SKILL {
+    width: 100%;
+    /* padding: 6vh 0 50px 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-section {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.skill-level {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Skill Card */
+.Front-End-Skill, .Back-End-Skill {
+    width: 100%;
+    padding: 20px 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Front-End-Skill:hover, .Back-End-Skill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Skill Title */
+.text-Primary-heading {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Individual Skill */
+.skill-level li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-name h3 {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.skill-name p {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 0;
+}
+
+/* Skill Bar */
+.bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.bar-fill {
+    height: 100%;
+    display: block;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    width: 0;
+    border-radius: 50px;
+    animation: fill-animation 2.5s ease forwards;
+}
+
+@keyframes fill-animation {
+    from { width: 0%; }
+    to { width: var(--fill-width, 100%); }
+}
+
+/* ------------------ Responsive -------------------- */
+@media (max-width: 799px) {
+    .skill-section {
+        width: 92%;
+    }
+    .skill-level li {
+        gap: 4px;
+    }
+    .skill-name h3 {
+        font-size: 1rem;
+    }
+    .skill-name p {
+        font-size: 0.9rem;
+    }
+    .bar {
+        height: 6px;
+    }
+    .bar-fill {
+        height: 100%;
+    }
+    .text-Primary-heading {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1225px) {
+    .skill-section {
+        width: 85%;
+    }
+    .text-Primary-heading {
+        font-size: 1.6rem;
+    }
+    .skill-name h3 {
+        font-size: 1.1rem;
+    }
+    .skill-name p {
+        font-size: 0.95rem;
+    }
+}

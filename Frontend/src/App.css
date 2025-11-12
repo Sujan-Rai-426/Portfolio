@@ -1,4 +1,9 @@
 
+
+html {
+    scroll-behavior: smooth;
+}
+
 /* ------------------For Mobile Screen-------------------- */
 @media (max-width:799px){
     

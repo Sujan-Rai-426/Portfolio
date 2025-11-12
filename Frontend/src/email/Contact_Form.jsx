@@ -1,8 +1,8 @@
 
 
 import React, { useEffect, useState } from 'react'
-import "../styles/Contact.css"
-import "../styles/Utility.css"
+import "../assets/styles/Contact.css"
+import "../assets/styles/Utility.css"
 import api from '../api';
 
 function Contact_Form() {
@@ -50,8 +50,8 @@ function Contact_Form() {
 
     return (
         
-<section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-
+<section id='CONTACT-FORM' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+        <h1 style={{margin:0, padding:0}}>Contact Us</h1>
     <div className="contact-section">
             
             <div className="contact-left">

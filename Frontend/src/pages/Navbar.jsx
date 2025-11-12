@@ -1,57 +1,85 @@
-import React from 'react'
-import "../styles/Navbar.css"
-import { Link } from "react-router-dom"
+import React from "react";
+import "../assets/styles/Navbar.css";
 
-function Navbar(props) {
+function Navbar({ toggleMode, mode }) {
+    // Smooth scroll function
+    const handleScroll = (e, targetId) => {
+        e.preventDefault();
+        const section = document.getElementById(targetId);
+        if (section) {
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
 
-    
+        // Close sidebar after clicking (for mobile)
+        const checkbox = document.getElementById("sidebar-active");
+        if (checkbox) checkbox.checked = false;
+    };
 
     return (
-
         <div>
             <nav>
-                                        {/* background toggle button */}
-                <button className='toggle-btn'  onClick={props.toggleMode}> {props.mode.backgroundColor === '#171b46'? (<i className="bi bi-sun-fill text-warning toggle-btn-icon"></i>) : (<i className="bi bi-moon-fill toggle-btn-icon"></i>) }</button>
+                {/* Background toggle button */}
+                <button className="toggle-btn" onClick={toggleMode}>
+                    {mode.backgroundColor === "#171b46" ? (
+                        <i className="bi bi-sun-fill text-warning toggle-btn-icon"></i>
+                    ) : (
+                        <i className="bi bi-moon-fill toggle-btn-icon"></i>
+                    )}
+                </button>
 
-                {/* <!-- Left side of navbar --> */}
+                {/* Left side */}
                 <div className="nav-left">
-
-
-                    <h2><a href="https://portfolio-backend-silk-xi.vercel.app/" className='px-5'>SUJAN</a></h2>
+                    <h2>
+                        <a href="/" className="px-5">
+                            SUJAN
+                        </a>
+                    </h2>
                 </div>
 
-
-
+                {/* Right side */}
                 <div>
-                    {/* <!-- SIDE BAR ACTIVE or on button --> */}
-                    <input type="checkbox"  id="sidebar-active"/>
-                            <label id="overlay" htmlFor="sidebar-active" className="open-sidebar-button">
-                                <i className="fa-solid fa-bars"></i>
-                            </label>
+                    <input type="checkbox" id="sidebar-active" />
+                    <label id="overlay" htmlFor="sidebar-active" className="open-sidebar-button">
+                        <i className="fa-solid fa-bars"></i>
+                    </label>
 
-                    {/* <!-- Right side of navbar --> */}
                     <div className="nav-right">
-                        {/* <!-- Side bar off or deative button --> */}
-                        <label htmlFor="sidebar-active" className="close-sidebar-button"> <i className="bi bi-x-lg"></i> </label>
+                        <label htmlFor="sidebar-active" className="close-sidebar-button">
+                            <i className="bi bi-x-lg"></i>
+                        </label>
 
-                        
-                            <Link to="/">  <li> <i className="fa-solid fa-house"></i>  Home</li> </Link>
-                            <Link to="/skills-services">  <li> <i className="bi bi-rocket-fill"></i>  Skills</li>  </Link>
-                            {/* <Link to="/education">  <li> <i className="bi bi-mortarboard-fill"></i>  Education</li> </Link> */}
-                            <Link to="/skills-services">  <li><i className="fa-solid fa-briefcase"></i> Services</li> </Link>
-                            {/* <!-- <Link to="#ACHIVEMENT">  <li> <i className="fa-solid fa-certificate"></i>  Achivements</li> </Link> --> */}
-                            <Link to="/projects">  <li> <i className="bi bi-person-workspace"></i>  Projects</li> </Link>
-                            <Link to="/contact"> <li> <i className="bi bi-person-lines-fill"></i>  Contact </li></Link>
-                        
+                        {/* Smooth scroll links */}
+                        <a href="#HOME" onClick={(e) => handleScroll(e, "HOME")}>
+                            <li><i className="fa-solid fa-house"></i> Home</li>
+                        </a>
+
+                        <a href="#ABOUT" onClick={(e) => handleScroll(e, "ABOUT")}>
+                            <li><i className="fa-solid fa-briefcase"></i> ABOUT</li>
+                        </a>
+
+                        <a href="#EDUCATION" onClick={(e) => handleScroll(e, "EDUCATION")}>
+                            <li><i className="bi bi-rocket-fill"></i> Education</li>
+                        </a>
+
+                        <a href="#SKILL" onClick={(e) => handleScroll(e, "SKILL")}>
+                            <li><i className="bi bi-rocket-fill"></i> Skills</li>
+                        </a>
+
+                        <a href="#PROJECTS" onClick={(e) => handleScroll(e, "PROJECTS")}>
+                            <li><i className="bi bi-person-workspace"></i> Projects</li>
+                        </a>
+
+                        <a href="#CONTACT-FORM" onClick={(e) => handleScroll(e, "CONTACT-FORM")}>
+                            <li><i className="bi bi-person-lines-fill"></i> Contact</li>
+                        </a>
                     </div>
                 </div>
-
             </nav>
-
         </div>
-
-    )
-
+    );
 }
 
-export default Navbar
+export default Navbar;
