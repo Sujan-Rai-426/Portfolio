@@ -28,6 +28,24 @@ function Home_Hero() {
         };
     }, []);
 
+
+        // Smooth scroll function
+    const handleScroll = (e, targetId) => {
+        e.preventDefault();
+        const section = document.getElementById(targetId);
+        if (section) {
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+
+        // Close sidebar after clicking (for mobile)
+        const checkbox = document.getElementById("sidebar-active");
+        if (checkbox) checkbox.checked = false;
+    };
+
+
     return (
             <div id="HOME">
                 <section className="home-section">
