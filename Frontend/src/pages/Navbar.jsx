@@ -33,7 +33,7 @@ function Navbar({ toggleMode, mode }) {
                 {/* Left side */}
                 <div className="nav-left">
                     <h2>
-                        <a href="/" className="px-5">
+                        <a href="https://portfolio-backend-silk-xi.vercel.app/" className="px-5">
                             SUJAN
                         </a>
                     </h2>
