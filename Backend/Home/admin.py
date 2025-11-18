@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Home.models import Backend_Skill, CurrentAddress, Download, Frontend_Skill, Project, Service, Technology
+from Home.models import Backend_Skill, Contact, CurrentAddress, Download, Frontend_Skill, Project, Service, Technology
 
 # Register your models here.
 
@@ -17,3 +17,4 @@ admin.site.register(Backend_Skill)
 admin.site.register(CurrentAddress)
 admin.site.register(Download)
 admin.site.register(Service)
+admin.site.register(Contact)
